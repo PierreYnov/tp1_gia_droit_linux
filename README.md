@@ -26,11 +26,26 @@
 
 ### I. Installation du système d’exploitation
 
-    install linux centos 7 minimal
-    only cli
-    seulement paquet utile installe
-    avoir dernier correcif de secu
-    avoir une partition dedié avecc dessus le dossier monté /partage  ( activer l'option ACL sur ce montage)
+On installe la version ```CentOS-7-x86_64-Minimal-2003.iso``` et pour avoir les derniers correctifs de sécurité on ``yum update`` 
+
+
+![](img/lsblk.png)
+
+On crée une nouvelle partition avec la commande ``fdisk /dev/sdb``
+
+![](img/fdisk.png)
+
+![](img/fdisk2.png)
+
+On voit que c'est bien créé :
+
+![](img/fdisk3.png)
+
+On active l'option ACL en montant le dossier /partage sur la partition :  
+
+![](img/mount.png)
+
+> Le dossier partage est bien monté ! 
 
 ### II. Sécurisation de l’administration du serveur
 
@@ -41,24 +56,43 @@ mettre en oeuvre ces mesures :
 
 - flux reseau entrant sortant doit etre filtré ( 80 443 22 avec ufw ?)
 
+On a renforcé la sécurisation de SSH en modifiant :
+- Le ```PermitRootLogin``` en ```no``` pour interdire la connexion avec le compte root
+- Le ```Protocol``` de SSH, nous avons utilisé le ```2```
+- Le ```Strictmode``` pour l'activer et vérifier les droits du ```.ssh/```
+
+On met une passphrase également après avoir générer la biclef avec ``ssh-keygen`` pour chaque utilisateur.
+
+
+Pour gérer le flux réseau on installe ufw et on restreint le réseau aux ports 80, 443 et 22.
+
+    sudo ufw deny default outgoing
+    sudo ufw deny default incoming
+    sudo ufw allow ssh
+    sudo ufw allow http
+    sudo ufw allow https
+
+![](img/ufw-status.png)
 
 ## Configuration et durcissement du rôle serveur de fichiers
 
 ### I. Préparation du dossier /partage
 
-dossier partage devront etre sur la partition /partage avec les fonctionnalité ACL posix
+Les dossiers partagés devront être stockés sur une partition dédiée (/partage) offrant les fonctionnalités des
+ACL posix
 
 ### II. Préparation des comptes utilisateurs
 
 créer un script shell qui :
 
-- crée des comptes
-- leurs biclfé 
-- des groupes users
-- un mdp fort 
+- crée des comptes : Done
+- des groupes users : Done
+- un mdp robuste : Done
 - passphrase pour la biclef
 
 (liste des comptes à créer en annexe)
+
+
 
 ### III. Préparation de la structure des répertoires
 
