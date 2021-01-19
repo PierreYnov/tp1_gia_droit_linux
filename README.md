@@ -9,13 +9,14 @@
 # Sommaire 
 
 - [Le Lab](#le-lab)
+- [Préparation et durcissement du système d’exploitation](##pr%C3%A9paration-et-durcissement-du-syst%C3%A8me-dexploitation)
+    - [I. Installation du système d’exploitation](##i-installation-du-syst%C3%A8me-dexploitation)
+    - [II. Sécurisation de l’administration du serveur](#ii-s%C3%A9curisation-de-ladministration-du-serveur)
+- [Configuration et durcissement du rôle serveur de fichiers](#configuration-et-durcissement-du-r%C3%B4le-serveur-de-fichiers)
+    - [I. Préparation du dossier /partage](#i-pr%C3%A9paration-du-dossier-partage)
+    - [II. Préparation des comptes utilisateurs](#ii-pr%C3%A9paration-des-comptes-utilisateurs)
+    - [III. Préparation de la structure des répertoires](#iii-pr%C3%A9paration-de-la-structure-des-r%C3%A9pertoires)
 
-
-manipulation droit acces systeme linux
-
-fonctionnalite ACLs POSIX
-
-application mesure renforcement secu linux
 
 ## Le lab
 
