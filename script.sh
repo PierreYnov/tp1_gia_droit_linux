@@ -1,39 +1,78 @@
 #!/bin/sh
 
-# Create user 
+# Create user and password with a random pass
 
 user =  'ewagner'
 adduser $user
 pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
 usermod --password $pass $user
 
-adduser amet
+user = 'amet'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser alaroche
+user = 'alaroche'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser tmaurice 
+user = 'tmaurice'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser cmuller
+user = 'cmuller'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser hjulien
+user = 'hjulien'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser jpasquier
+user = 'jpasquier'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser mpires
+user = 'mpires'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser gbernard
+user = 'gbernard'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser clapresse
+user = 'clapresse'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser rpirouet
+user = 'rpirouet'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser jbonnet
+user = 'jbonnet'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser llamoureux
+user = 'llamoureux'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-adduser hadler
+user = 'hadler'
+adduser $user
+pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
+usermod --password $pass $user
 
-# create group
+# Create group
 
 groupadd Direction
 groupadd Pilotage
@@ -41,15 +80,15 @@ groupadd ServiceComptable
 groupadd ServiceInformatique
 groupadd ServiceLogistique
 
-# add user to group
+# assign all user to a group
 
-usermod -a -G Direction,Pilotage ewagner 
+usermod -a -G Direction,Pilotage ewagner
 usermod -a -G Pilotage, ServiceComptable amet
 usermod -a -G ServiceComptable alaroche
 usermod -a -G ServiceComptable tmaurice
 usermod -a -G ServiceInformatique,Pilotage cmuller
 usermod -a -G ServiceInformatique hjulien
-usermod -a -G ServiceInformatique jpasquier 
+usermod -a -G ServiceInformatique jpasquier
 usermod -a -G ServiceInformatique mpires
 usermod -a -G Pilotage,ServiceLogistique gbernard
 usermod -a -G ServiceLogistique clapresse
@@ -58,3 +97,4 @@ usermod -a -G ServiceLogistique jbonnet
 usermod -a -G ServiceLogistique llamoureux
 usermod -a -G ServiceLogistique hadler
 
+# create biclef and random passphrase
