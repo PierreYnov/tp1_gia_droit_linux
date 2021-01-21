@@ -2,88 +2,35 @@
 
 # Create user and password with a random pass
 
-user =  'ewagner'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
+echo -e "\nCreation of current user ...\n"
 
-user = 'amet'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
+account="ewagner amet alaroche tmaurice cmuller hjulien jpasquier mpires gbernard clapresse rpirouet jbonnet llamoureux hadler"
 
-user = 'alaroche'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'tmaurice'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'cmuller'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'hjulien'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'jpasquier'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'mpires'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'gbernard'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'clapresse'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'rpirouet'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'jbonnet'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'llamoureux'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
-
-user = 'hadler'
-adduser $user
-pass=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 12; echo)
-usermod --password $pass $user
+for user in $account; do
+  adduser $user
+  pass=$(cat /dev/urandom | tr -cd 'a-z0-9!#&' | head -c 12; echo)
+  usermod --password $pass $user
+  echo $user : $pass >> pass.txt
+  echo Account '"'$user'"' have been created with password : $pass
+done
 
 # Create group
 
-groupadd Direction
-groupadd Pilotage
-groupadd ServiceComptable
-groupadd ServiceInformatique
-groupadd ServiceLogistique
+echo -e "\n-----------------------\n\nCreation of current group ...\n"
 
-# assign all user to a group
+group="Direction Pilotage ServiceComptable ServiceLogistique ServiceInformatique"
+
+for groups in $group; do
+  groupadd $groups
+  echo Group '"'$groups'"' have been created.
+done
+
+# assign all user to a
+
+echo -e "\n-----------------------\n\nAssigning all user to a group ...\n"
 
 usermod -a -G Direction,Pilotage ewagner
-usermod -a -G Pilotage, ServiceComptable amet
+usermod -a -G Pilotage,ServiceComptable amet
 usermod -a -G ServiceComptable alaroche
 usermod -a -G ServiceComptable tmaurice
 usermod -a -G ServiceInformatique,Pilotage cmuller
@@ -97,4 +44,14 @@ usermod -a -G ServiceLogistique jbonnet
 usermod -a -G ServiceLogistique llamoureux
 usermod -a -G ServiceLogistique hadler
 
+echo -e "OK.\n"
+
 # create biclef and random passphrase
+
+echo -e "\n-----------------------\n\nCreation of current biclef ...\n"
+
+# A tester :
+
+# passphrase=$(cat /dev/urandom | tr -cd 'a-z0-9!-_#&' | head -c 15; echo)
+#
+# ssh-keygen -t rsa -f /home/oracle/.ssh/id_rsa -q -P "passphrase"
