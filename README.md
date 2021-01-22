@@ -2,11 +2,11 @@
 ## Manipulation des droits d’accès au système de fichiers
 
 ## Classe : B3B
-## Élèves : Emma Durand **[@emmadrd912](https://github.com/emmadrd912)** et Pierre Ceberio **[@PierreYnov](https://github.com/PierreYnov)** 
+## Élèves : Emma Durand **[@emmadrd912](https://github.com/emmadrd912)** et Pierre Ceberio **[@PierreYnov](https://github.com/PierreYnov)**
 
 ![](https://waytolearnx.com/wp-content/uploads/2018/08/QCM-Linux.jpg)
 
-# Sommaire 
+# Sommaire
 
 - [Le Lab](#le-lab)
 - [Préparation et durcissement du système d’exploitation](##pr%C3%A9paration-et-durcissement-du-syst%C3%A8me-dexploitation)
@@ -26,7 +26,7 @@
 
 ### I. Installation du système d’exploitation
 
-On installe la version ```CentOS-7-x86_64-Minimal-2003.iso``` et pour avoir les derniers correctifs de sécurité on ``yum update`` 
+On installe la version ```CentOS-7-x86_64-Minimal-2003.iso``` et pour avoir les derniers correctifs de sécurité on ``yum update``
 
 
 ![](img/lsblk.png)
@@ -45,11 +45,11 @@ On active l'option ACL en montant le dossier /partage sur la partition :
 
 ![](img/mount.png)
 
-> Le dossier partage est bien monté ! 
+> Le dossier partage est bien monté !
 
 ### II. Sécurisation de l’administration du serveur
 
-mettre en oeuvre ces mesures : 
+mettre en oeuvre ces mesures :
 
 - administration du serv vie SSH (en suivant ces reco https://www.ssi.gouv.fr/guide/recommandations-pour-un-usage-securise-dopenssh/)
 - chaque personne pourra etablir une session via son compte user et une biclef sécurisé pour acceder au systeme de fichier
@@ -83,16 +83,33 @@ ACL posix
 
 ### II. Préparation des comptes utilisateurs
 
-créer un script shell qui :
+Création d'un script shell qui contient :
 
-- crée des comptes : Done
-- des groupes users : Done
-- un mdp robuste : Done
-- passphrase pour la biclef
+- la création des comptes
+- la création des groupes users
+- un mot de passe robuste pour le user
+- une biclef avec une passphrase robuste
 
-(liste des comptes à créer en annexe)
+- Le script se trouve : [ici](script.sh)
 
+Lorsqu'on lance le script, il nous affiche dans la console les actions qu'il a fait.
 
+![](img/shell.png)
+
+> On remarque que le script nous retourne aussi les mots de passes.
+Vu que les mots de passes et passphrases sont générés aléatoirement, nous l'affichons pour garder un trace et les réutiliser lorsqu'on en aura besoin. Nous les stockons aussi dans un fichier .txt.
+
+Nous pouvons ensuite vérifier si les comptes et les groupes ont bien été créé avec un ```cat /etc/group```.
+
+![](img/group.png)
+
+> Les utilisateurs et les groupes ont bien été créé. On remarque aussi que les utilisateurs ont bien été assignés à leurs groupes.
+
+Pour vérifier que les clé ssh se sont bien générés pour chaque utilisateur, il suffit d'aller sur une session en se connectant avec le mot de passe stocké et vérifier si les fichiers sont présent.
+
+![](img/ewagner_ssh.png)
+
+> La connexion est Ok et les clés se sont bien générées.
 
 ### III. Préparation de la structure des répertoires
 
