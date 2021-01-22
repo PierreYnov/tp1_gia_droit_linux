@@ -105,7 +105,7 @@ Nous pouvons ensuite vérifier si les comptes et les groupes ont bien été cré
 
 > Les utilisateurs et les groupes ont bien été créé. On remarque aussi que les utilisateurs ont bien été assignés à leurs groupes.
 
-Pour vérifier que les clé ssh se sont bien générés pour chaque utilisateur, il suffit d'aller sur une session en se connectant avec le mot de passe stocké et vérifier si les fichiers sont présent.
+Pour vérifier que les clé ssh se sont bien générés pour chaque utilisateur, il suffit de se rendre dans le dossier de l'utilisateur et vérifier si les clés sont bien présente.
 
 ![](img/ewagner_ssh.png)
 
