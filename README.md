@@ -113,10 +113,16 @@ Pour vérifier que les clé ssh se sont bien générés pour chaque utilisateur,
 
 ### III. Préparation de la structure des répertoires
 
-créer la structure des dossiers partagés sur le serv en regardant la structure en annexe
+- Créer la structure des dossiers partagés sur le serveur en regardant la structure en annexe.
 
-utilisez ACL POSIX pour parametrer les permissions sur les repertoire ( en suivant la liste de controle d'accès)
+![](img/directory.png)
 
-voir https://www.usenix.org/legacy/publications/library/proceedings/usenix03/tech/freenix03/full_papers/gruenbacher/gruenbacher_html/
+> La structure est crée.
 
-https://lea-linux.org/documentations/Gestion_des_ACL
+- Utilisez ACL POSIX pour parametrer les permissions sur les repertoire ( en suivant la liste de controle d'accès)
+
+Pour les ACL, nous nous sommes référés au tableau annexe.
+
+![](img/annexe.png)
+
+Puis nous avons commencé à définir les permission ssur chaque dossier :
