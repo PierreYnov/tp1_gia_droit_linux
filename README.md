@@ -125,4 +125,38 @@ Pour les ACL, nous nous sommes référés au tableau annexe.
 
 ![](img/annexe.png)
 
-Puis nous avons commencé à définir les permission ssur chaque dossier :
+Puis nous avons commencé à définir les permission sur chaque dossier :
+
+Pour mettre en place des ACL, il suffit d'utiliser la commande :
+
+```
+setfacl -m u:ewagner:rwx,g:Direction:rwx D1-Direction/
+```
+
+> On précise l'utilisateur et les droits auquel on veut associer au dossier.
+
+Toutes nos commandes pour la création des ACL sur chaque dossiers sont présent dans le fichier : [acl.txt](acl.txt).
+
+Une fois la mise en place des ACL des effectués, on peut vérifier que cela fonctionne.
+
+***Exemple :***
+
+***Ewagner*** est présent dans le groupe ***Direction*** et à comme droit de lecture et écriture sur le dossier D1-Direction :
+
+![](img/ewagner.png)
+
+> Il peut donc acceder au dossier et même pouvoir créer un fichier.
+
+***Alaroche*** est présent dans le groupe ***ServiceComptabilité*** qui a le droit de lecture sur le dossier D1-1-Stratégie mais n'a pas le droit d'écriture :
+
+![](img/alaroche.png)
+
+> On remarque qu'on peut lire dans le dossier mais pas écrire.
+
+***Amet*** a les droits de lecture et d'écriture sur le dossier C2-2-Administratif mais n'a pas les droits d'écriture sur C2-3-Informatique :
+
+![](img/amet.png)
+
+> On remarque bien que amet ne peut pas créer de fichier dans C2-3-Informatique mais qu'il peut dans le dossier C2-2-Administratif.
+
+Comme vu ci-dessus, la mise en place des ACL est fonctionnelle !

@@ -1,89 +1,89 @@
 # acl D1-Direction
 
-setfacl -m u:ewagner:rw,g:Direction:rw D1-Direction/
+setfacl -m u:ewagner:rwx,g:Direction:rwx D1-Direction/
 
 # acl D1-1-Strategie
 
-setfacl -m u:ewagner:rw,g:Direction:rw D1-1-Strategie/
-setfacl -m u:amet:r,g:Pilotage:r D1-1-Strategie/
-setfacl -m g:ServiceComptable:r D1-1-Strategie/
+setfacl -m u:ewagner:rwx,g:Direction:rwx D1-1-Strategie/
+setfacl -m u:amet:rx,g:Pilotage:rx D1-1-Strategie/
+setfacl -m g:ServiceComptable:rx D1-1-Strategie/
 
 # acl D1-2-Strategie
 
-setfacl -m u:ewagner:rw,g:Direction:rw D1-2-Achats/
+setfacl -m u:ewagner:rwx,g:Direction:rwx D1-2-Achats/
 
 # acl C1-Comptabilite
 
-setfacl -m u:ewagner:r,u:amet:rw,g:Direction:r,g:ServiceComptable:r C1-Comptabilite/
+setfacl -m u:ewagner:rx,u:amet:rwx,g:Direction:rx,g:ServiceComptable:rx C1-Comptabilite/
 
 # acl C1-1-Comptabilite
 
-setfacl -m u:ewagner:r,u:amet:rw,u:alaroche:rw,g:Direction:r,g:ServiceComptable:r C1-1-Comptabilite/
+setfacl -m u:ewagner:rx,u:amet:rwx,u:alaroche:rwx,g:Direction:rx,g:ServiceComptable:rx C1-1-Comptabilite/
 
 # acl C1-2-TVA
 
-setfacl -m u:ewagner:r,u:amet:rw,u:alaroche:rw,u:tmaurice:rw,g:Direction:r,g:ServiceComptable:r C1-2-TVA/
+setfacl -m u:ewagner:rx,u:amet:rwx,u:alaroche:rwx,u:tmaurice:rwx,g:Direction:rx,g:ServiceComptable:rx C1-2-TVA/
 
 # acl C1-3-Facturation
 
-setfacl -m u:ewagner:r,u:amet:rw,u:tmaurice:rw,g:Direction:r,g:ServiceComptable:r C1-3-Facturation/
+setfacl -m u:ewagner:rx,u:amet:rwx,u:tmaurice:rwx,g:Direction:rx,g:ServiceComptable:rx C1-3-Facturation/
 
 # acl A1-Administratif
 
-setfacl -m u:ewagner:r,g:Direction:r A1-Administratif/
+setfacl -m u:ewagner:rx,g:Direction:rx A1-Administratif/
 
 # acl A1-1-Gestion_des_conges
 
-setfacl -m u:ewagner:rw,g:Direction:rw A1-1-Gestion_des_conges/
+setfacl -m u:ewagner:rwx,g:Direction:rwx A1-1-Gestion_des_conges/
 
 # acl A1-2-Gestion_des_formations_internes
 
-setfacl -m g:Direction:rw,g:Pilotage:r,u:ewagner:rw A1-2-Gestion_des_formations_internes/
+setfacl -m g:Direction:rwx,g:Pilotage:rx,u:ewagner:rwx A1-2-Gestion_des_formations_internes/
 
 # acl A1-3-Qualite
 
-setfacl -m g:Direction:rw,g:Pilotage:r,u:ewagner:rw A1-3-Qualite/
+setfacl -m g:Direction:rwx,g:Pilotage:rx,u:ewagner:rwx A1-3-Qualite/
 
 # acl A1-4-Achats
 
-setfacl -m g:Direction:rw,g:Pilotage:r,g:ServiceComptable:r,u:ewagner:rw,u:amet:r A1-4-Achats/
+setfacl -m g:Direction:rwx,g:Pilotage:rx,g:ServiceComptable:rx,u:ewagner:rwx,u:amet:rx A1-4-Achats/
 
 # acl D2-DSI
 
-setfacl -m g:Direction:r,g:ServiceInformatique:rw,u:ewagner:r D2-DSI/
+setfacl -m g:Direction:rx,g:ServiceInformatique:rwx,u:ewagner:rx D2-DSI/
 
 # acl D2-1-Procedures
 
-setfacl -m g:Direction:r,g:ServiceInformatique:rw,u:ewagner:r D2-1-Procedures/
+setfacl -m g:Direction:rx,g:ServiceInformatique:rwx,u:ewagner:rx D2-1-Procedures/
 
 # acl D2-2-Divers_scripts
 
-setfacl -m g:Direction:r,g:ServiceInformatique:rw,u:ewagner:r D2-2-Divers_scripts/
+setfacl -m g:Direction:rx,g:ServiceInformatique:rwx,u:ewagner:rx D2-2-Divers_scripts/
 
 # acl D2-3-Documentation_du_SI
 
-setfacl -m g:Direction:r,g:ServiceInformatique:rw,u:ewagner:r D2-3-Documentation_du_SI/
+setfacl -m g:Direction:rx,g:ServiceInformatique:rwx,u:ewagner:rx D2-3-Documentation_du_SI/
 
 # acl D3-Depot
 
-setfacl -m g:Direction:r,g:ServiceLogistique:rw,u:ewagner:r D3-Depot/
+setfacl -m g:Direction:rx,g:ServiceLogistique:rwx,u:ewagner:rx D3-Depot/
 
 # acl C2-Commun
 
-setfacl -m g:Direction:r,u:ewagner:r C2-Commun/
+setfacl -m g:Direction:rx,u:ewagner:rx C2-Commun/
 
 # acl C2-1-Direction
 
-setfacl -m g:Direction:rw,g:ServiceComptable:r,g:ServiceInformatique:r,g:ServiceLogistique:r,u:ewagner:rw,u:amet:r,u:cmuller:r,u:gbernard:r C2-1-Direction/
+setfacl -m g:Direction:rwx,g:ServiceComptable:rx,g:ServiceInformatique:rx,g:ServiceLogistique:rx,u:ewagner:rwx,u:amet:rx,u:cmuller:rx,u:gbernard:rx C2-1-Direction/
 
 # acl C2-2-Administratif
 
-setfacl -m g:Direction:r,g:ServiceComptable:r,g:ServiceInformatique:r,g:ServiceLogistique:r,u:ewagner:r,u:amet:rw,u:cmuller:r,u:gbernard:r C2-2-Administratif/
+setfacl -m g:Direction:rx,g:ServiceComptable:rx,g:ServiceInformatique:rx,g:ServiceLogistique:rx,u:ewagner:rx,u:amet:rwx,u:cmuller:rx,u:gbernard:rx C2-2-Administratif/
 
 # acl C2-3-Informatique
 
-setfacl -m g:Direction:r,g:ServiceComptable:r,g:ServiceInformatique:r,g:ServiceLogistique:r,u:ewagner:r,u:amet:r,u:cmuller:rw,u:gbernard:r C2-3-Informatique/
+setfacl -m g:Direction:rx,g:ServiceComptable:rx,g:ServiceInformatique:rx,g:ServiceLogistique:rx,u:ewagner:rx,u:amet:rx,u:cmuller:rwx,u:gbernard:rx C2-3-Informatique/
 
 # acl C2-4-Production
 
-setfacl -m g:Direction:r,g:ServiceComptable:r,g:ServiceInformatique:r,g:ServiceLogistique:r,u:ewagner:r,u:amet:r,u:cmuller:r,u:gbernard:rw C2-4-Production/
+setfacl -m g:Direction:rx,g:ServiceComptable:rx,g:ServiceInformatique:rx,g:ServiceLogistique:rx,u:ewagner:rx,u:amet:rx,u:cmuller:rx,u:gbernard:rwx C2-4-Production/
